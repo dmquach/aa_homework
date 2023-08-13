@@ -1,8 +1,11 @@
 class LRUCache
-    def initialize
+    def initialize(size)
+        @size = size
+        @cache = []
     end
 
     def count
+        @cache.count
       # returns number of elements currently in cache
     end
 
