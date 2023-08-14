@@ -10,13 +10,20 @@ class LRUCache
     end
 
     def add(el)
-        @cache << el
-
+        if @cache.include?(el)
+            @cache.delete(el)
+            @cache << el
+        elsif count >= @size
+            @cache.shift
+            @cache << el
+        else
+            @cache << el
+        end
       # adds element to cache according to LRU principle
     end
 
     def show
-        p "cache:  + #{@cache}"
+        p "cache:  #{@cache}"
       # shows the items in the cache, with the LRU item first
     end
 
